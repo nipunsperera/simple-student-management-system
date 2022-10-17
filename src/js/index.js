@@ -8,6 +8,9 @@ const txtAddress = document.getElementById('txt-address');
 const txtContact = document.getElementById('txt-contact');
 const frmStudent = document.getElementById('frm-student');
 
+
+
+
 // console.log(tblStudent,btnNew,btnSave,btnClear,txtId,txtName,txtAddress,txtContact, frmStudent);
 
 
@@ -36,10 +39,35 @@ class Student{
         contactCell.innerText = this.contact;
         removeCell.innerHTML = `<i class="bi bi-trash"></i>`;
 
+        // removeCell.querySelector('i').addEventListener('click',()=> this.rowElm.remove());
+
+        this.rowElm.addEventListener('click',()=>{ /* making to select list items */
+            student.forEach(student => student.rowElm.classList.remove('selected'));
+            this.rowElm.classList.add('selected');
+        });
+
+
+
+
         tblStudent.classList.remove('empty');
     }
 }
 
+tblStudent.tBodies[0].addEventListener('click',({target:elm})=>{  /* target pull as elm. then we can call it elm from now on */
+    // console.log(eventData.target, eventData.currentTarget);
+
+    /* Deligated EventHandlers */
+    if(elm && elm.tagName =='i'.toUpperCase() && elm.classList.contains('bi-trash')){
+        const elmRow = elm.closest('tr');
+        const index = student.findIndex(student => student.rowElm === elmRow);
+        student.splice(index,1);
+        elmRow.remove();
+        
+        if(!tblStudent.tBodies[0].rows.length){ /* Preview No Records when 0 records */
+            tblStudent.classList.add('empty');
+        }
+    }
+});
 
 
 
@@ -66,6 +94,7 @@ const inputListener = (eventData)=>{
 
 [txtName,txtContact,txtAddress].forEach(input => input.addEventListener('input',inputListener));
 
+const student =[];
 
 btnNew.addEventListener('click',()=>{
     [txtId, txtName, txtContact,txtAddress,btnSave,btnClear].forEach(ctrl => ctrl.disabled = false);
@@ -95,7 +124,7 @@ btnSave.addEventListener('click',()=>{
     return;
    }
 
-   new Student(txtId.value, txtName.value, txtAddress.value, txtContact.value);
+   student.push(new Student(txtId.value, txtName.value, txtAddress.value, txtContact.value));
 });
 
 

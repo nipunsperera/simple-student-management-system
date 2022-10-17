@@ -12,6 +12,10 @@ table {
         display: none;
     }
 
+    tbody tr.selected{ /* if tr set by a class named selected */
+        background-color: lightskyblue;
+    }
+
     td:first-child,
     th:first-child,
     td:last-child{
