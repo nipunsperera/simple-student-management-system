@@ -1,4 +1,17 @@
+table tfoot{
+    display: none;
+}
+
 table {
+
+    &.empty tfoot{ /* & if .empty set to parent tfott display block*/
+        display: table-footer-group;
+    }
+
+    tfoot{ /* else not display tfoot */
+        display: none;
+    }
+
     td:first-child,
     th:first-child,
     td:last-child{
@@ -34,3 +47,4 @@ table {
     width: 70px;
     
 }
+
