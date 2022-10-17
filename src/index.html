@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Experiment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./scss/index.scss">
+    <script defer src="./js/index.js"></script>
+</head>
+<body class="container">
+    <h1 class="text-center py-3">Student Management System</h1>
+    <div class="row">
+        <div class="col-xl-4">
+
+            <form action="#">
+                <div>
+                    <button id="btn-new" class="btn btn-success">New Student</button>
+                </div>
+                
+                <div class="form-floating mt-2">
+                    <input readonly type="text" class="form-control" id="txt-id" placeholder="Student ID">
+                    <label for="txt-id">Student ID</label>
+                </div>
+    
+                <div class="form-floating mt-2">
+                    <input type="text" class="form-control" id="txt-name" placeholder="Student Name">
+                    <label for="txt-name">Student Name</label>
+                </div>
+    
+                <div class="form-floating mt-2">
+                    <input type="text" class="form-control" id="txt-address" placeholder="Student Address">
+                    <label for="txt-address">Student Address</label>
+                </div>
+    
+                <div class="form-floating mt-2">
+                    <input type="text" class="form-control" id="txt-contact" placeholder="Student Contact">
+                    <label for="txt-contact">Student Contact</label>
+                </div>
+    
+                <div class="mt-2">
+                    <button id="btn-save" disabled class="btn btn-primary" type="button">Save Student</button>
+                    <button id="btn-clear" disabled class="btn btn-warning" type="reset">Clear</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-xl-8 mt-3">
+            <table id="tbl-student" class="table table-hover">
+                <colgroup><!-- Used to style all columns --> 
+                    <col class="col-id">
+                    <col class="col-name">
+                    <col class="col-contact">
+                    <col class="col-remove">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>CONTACT</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S001</td>
+                        <td>Nipun</td>
+                        <td>0774456270</td>
+                        <td><i class="bi bi-trash"></i></td>
+                    </tr>
+                    <tr>
+                        <td>S002</td>
+                        <td>Nuwan</td>
+                        <td>0714456270</td>
+                        <td><i class="bi bi-trash"></i></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <th colspan="4" class="text-center">No Records Found !</th>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
